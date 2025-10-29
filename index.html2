@@ -1,0 +1,347 @@
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import { Sparkles, BookOpen, Star, Calendar, Phone, Instagram, Mail, MapPin, Heart } from "lucide-react";
+
+// Nota de estilo:
+// • Paleta sugerida por la marca: violeta, dorado, índigo
+//   Violeta principal: #6B4DE6 | Índigo profundo: #2C2F5A | Dorado acento: #D4AF37
+// • Sin signos de exclamación ni paréntesis, tono cercano y directo
+
+export default function Page() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#F7F5FF] to-white text-slate-800 selection:bg-[#D4AF37]/30">
+      {/* Navbar */}
+      <header className="sticky top-0 z-50 bg-white/70 backdrop-blur border-b">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="h-9 w-9 rounded-2xl bg-gradient-to-br from-[#6B4DE6] to-[#C39BFF] grid place-items-center shadow">
+              <Heart className="h-5 w-5 text-white" />
+            </div>
+            <div className="leading-tight">
+              <p className="font-semibold tracking-tight">Madres que Vibran Alto</p>
+              <p className="text-xs text-slate-500">Terapia holística y formación</p>
+            </div>
+          </div>
+
+          <nav className="hidden md:flex items-center gap-6 text-sm">
+            <a href="#servicios" className="hover:text-[#6B4DE6]">Servicios</a>
+            <a href="#formaciones" className="hover:text-[#6B4DE6]">Formaciones</a>
+            <a href="#eventos" className="hover:text-[#6B4DE6]">Eventos</a>
+            <a href="#testimonios" className="hover:text-[#6B4DE6]">Testimonios</a>
+            <a href="#contacto" className="hover:text-[#6B4DE6]">Contacto</a>
+          </nav>
+
+          <div className="flex items-center gap-2">
+            <a href="https://www.mundobienestar.com.ar" target="_blank" rel="noreferrer">
+              <Button variant="secondary" className="rounded-2xl">Mundo Bienestar</Button>
+            </a>
+            <a href="#contacto">
+              <Button className="rounded-2xl bg-[#6B4DE6] hover:bg-[#5c41c7]">Agenda por WhatsApp</Button>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
+          <div className="space-y-6">
+            <Badge className="bg-[#D4AF37] text-slate-900 rounded-xl px-3 py-1 w-fit">Energía, propósito y comunidad</Badge>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
+              Acompaño tu camino espiritual con herramientas simples y profundas
+            </h1>
+            <p className="text-slate-600 text-lg">
+              Registros Akáshicos, canalización angélica y espacios de formación. Un enfoque amoroso y práctico para integrar alma y vida cotidiana.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href="#servicios"><Button className="rounded-2xl bg-[#6B4DE6] hover:bg-[#5c41c7]">Ver servicios</Button></a>
+              <a href="#formaciones"><Button variant="outline" className="rounded-2xl border-[#D4AF37] text-[#2C2F5A]">Formaciones</Button></a>
+            </div>
+            <div className="flex items-center gap-5 text-sm text-slate-500">
+              <div className="flex items-center gap-2"><Sparkles className="h-4 w-4"/> Guía amorosa</div>
+              <div className="flex items-center gap-2"><Star className="h-4 w-4"/> Comunidad real</div>
+              <div className="flex items-center gap-2"><BookOpen className="h-4 w-4"/> Contenidos claros</div>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute inset-0 -z-10 blur-3xl opacity-30 bg-gradient-to-br from-[#C39BFF] to-[#6B4DE6] rounded-[3rem]"/>
+            <Card className="rounded-3xl shadow-xl">
+              <CardHeader>
+                <CardTitle>Sesiones y talleres</CardTitle>
+                <CardDescription>Un espacio cálido para volver a tu centro</CardDescription>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                <div className="grid grid-cols-3 gap-3 text-center">
+                  {[
+                    {title: "Registros Akáshicos", desc: "Sesión express y completa"},
+                    {title: "Canalización", desc: "Mensajes de tus guías"},
+                    {title: "Códigos de Luz", desc: "Activaciones y limpieza"},
+                  ].map((s, i) => (
+                    <div key={i} className="p-4 rounded-2xl border bg-white">
+                      <p className="font-medium">{s.title}</p>
+                      <p className="text-xs text-slate-500">{s.desc}</p>
+                    </div>
+                  ))}
+                </div>
+                <a href="#contacto"><Button className="w-full rounded-2xl bg-[#2C2F5A] hover:bg-[#26284b]">Reservar turno</Button></a>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Servicios */}
+      <section id="servicios" className="max-w-6xl mx-auto px-4 py-16">
+        <div className="mb-8">
+          <h2 className="text-3xl font-semibold tracking-tight">Servicios</h2>
+          <p className="text-slate-600">Acompañamientos individuales y propuestas para grupos</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              title: "Sesión de Registros Akáshicos",
+              points: [
+                "Lectura enfocada en claridad y acción",
+                "Grabación opcional",
+                "Guía posterior en PDF",
+              ],
+            },
+            {
+              title: "Canalización Angélica",
+              points: [
+                "Mensajes de tus guías",
+                "Reencuadre amoroso de situaciones",
+                "Cierre con decreto personal",
+              ],
+            },
+            {
+              title: "Códigos de Luz y Limpieza energética",
+              points: [
+                "Liberación suave de densidades",
+                "Activación de intención",
+                "Cuidado para sostener el proceso",
+              ],
+            },
+          ].map((card, i) => (
+            <Card key={i} className="rounded-3xl">
+              <CardHeader>
+                <CardTitle className="text-xl">{card.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {card.points.map((p, j) => (
+                  <div key={j} className="flex items-start gap-2 text-sm">
+                    <div className="h-2 w-2 rounded-full bg-[#D4AF37] mt-2" />
+                    <p className="text-slate-600">{p}</p>
+                  </div>
+                ))}
+                <a href="#contacto"><Button className="mt-4 rounded-2xl bg-[#6B4DE6] hover:bg-[#5c41c7]">Quiero saber más</Button></a>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Formaciones */}
+      <section id="formaciones" className="bg-[#FBFAFF] border-y">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <div className="mb-8">
+            <h2 className="text-3xl font-semibold tracking-tight">Formaciones en la Academia Mundo Bienestar</h2>
+            <p className="text-slate-600">Programas con práctica real y acompañamiento</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="rounded-3xl">
+              <CardHeader>
+                <CardTitle>Registros Akáshicos Nivel 1 y 2</CardTitle>
+                <CardDescription>Para tu apertura y para terceros</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-slate-600">
+                <p>Formato híbrido en Caballito u online por Zoom</p>
+                <p>Guías, meditaciones y prácticas supervisadas</p>
+                <div className="flex gap-3">
+                  <Badge className="rounded-xl bg-[#D4AF37] text-slate-900">Cupos limitados</Badge>
+                  <Badge variant="outline" className="rounded-xl border-[#D4AF37] text-[#2C2F5A]">Certificación</Badge>
+                </div>
+                <a href="#contacto"><Button className="rounded-2xl bg-[#2C2F5A] hover:bg-[#26284b]">Anotarme</Button></a>
+              </CardContent>
+            </Card>
+
+            <Card className="rounded-3xl">
+              <CardHeader>
+                <CardTitle>Tarot y Oráculos Angélicos</CardTitle>
+                <CardDescription>Lecturas desde la conciencia y el servicio</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-slate-600">
+                <p>Encuentros semanales y comunidad de práctica</p>
+                <p>Material descargable y soporte</p>
+                <a href="#contacto"><Button variant="outline" className="rounded-2xl border-[#D4AF37]">Quiero el programa</Button></a>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Eventos */}
+      <section id="eventos" className="max-w-6xl mx-auto px-4 py-16">
+        <div className="mb-8">
+          <h2 className="text-3xl font-semibold tracking-tight">Próximos eventos</h2>
+          <p className="text-slate-600">Noviembre en Mundo Bienestar se viene con todo</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {title: "Conexiones de Luz", date: "Vie 31 de octubre 19.30", place: "Av. Directorio 32, Caballito"},
+            {title: "Taller Niño Interior", date: "Dom 16 de noviembre 15 a 18", place: "Mundo Bienestar"},
+            {title: "Formación Registros Akáshicos", date: "Jue 6, 13, 20 y 27 de noviembre 19.30 a 21.30", place: "Híbrido"},
+          ].map((e, i) => (
+            <Card key={i} className="rounded-3xl">
+              <CardHeader>
+                <CardTitle className="text-xl">{e.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-2 text-sm">
+                <div className="flex items-center gap-2 text-slate-600">
+                  <Calendar className="h-4 w-4"/>
+                  <span>{e.date}</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-600">
+                  <MapPin className="h-4 w-4"/>
+                  <span>{e.place}</span>
+                </div>
+                <a href="#contacto"><Button className="mt-3 rounded-2xl bg-[#6B4DE6] hover:bg-[#5c41c7]">Quiero participar</Button></a>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonios */}
+      <section id="testimonios" className="bg-[#FBFAFF] border-y">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <div className="mb-8">
+            <h2 className="text-3xl font-semibold tracking-tight">Lo que dicen las personas</h2>
+            <p className="text-slate-600">Experiencias que inspiran confianza</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Mariana",
+                text: "La lectura me ordenó. Sentí calma y claridad para avanzar.",
+              },
+              {
+                name: "Luciana",
+                text: "La canalización abrió una puerta. Me fui con herramientas simples para el día a día.",
+              },
+              {
+                name: "Sofía",
+                text: "La formación me dio base y práctica. Hoy acompaño a otros con confianza.",
+              },
+            ].map((t, i) => (
+              <Card key={i} className="rounded-3xl">
+                <CardContent className="pt-6">
+                  <p className="text-slate-700">{t.text}</p>
+                  <p className="mt-4 text-sm font-medium text-[#2C2F5A]">{t.name}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contacto */}
+      <section id="contacto" className="max-w-6xl mx-auto px-4 py-16">
+        <div className="mb-8">
+          <h2 className="text-3xl font-semibold tracking-tight">Contacto</h2>
+          <p className="text-slate-600">Elegí el canal que te quede cómodo</p>
+        </div>
+
+        <div className="grid md:grid-cols-5 gap-6">
+          <div className="md:col-span-2 space-y-4">
+            <a href="https://wa.me/5491154990689" target="_blank" rel="noreferrer">
+              <Card className="rounded-3xl hover:shadow-lg transition">
+                <CardContent className="p-5 flex items-center gap-4">
+                  <Phone className="h-5 w-5"/>
+                  <div>
+                    <p className="font-medium">WhatsApp</p>
+                    <p className="text-sm text-slate-600">+54 9 11 5499 0689</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
+            <a href="https://www.instagram.com/madresquevibranalto" target="_blank" rel="noreferrer">
+              <Card className="rounded-3xl hover:shadow-lg transition">
+                <CardContent className="p-5 flex items-center gap-4">
+                  <Instagram className="h-5 w-5"/>
+                  <div>
+                    <p className="font-medium">Instagram</p>
+                    <p className="text-sm text-slate-600">@madresquevibranalto</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
+            <a href="mailto:contacto@mundobienestar.com.ar" target="_blank" rel="noreferrer">
+              <Card className="rounded-3xl hover:shadow-lg transition">
+                <CardContent className="p-5 flex items-center gap-4">
+                  <Mail className="h-5 w-5"/>
+                  <div>
+                    <p className="font-medium">Correo</p>
+                    <p className="text-sm text-slate-600">contacto@mundobienestar.com.ar</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
+          </div>
+
+          <div className="md:col-span-3">
+            <Card className="rounded-3xl">
+              <CardHeader>
+                <CardTitle>Escribime</CardTitle>
+                <CardDescription>Contame qué buscás y te respondo a la brevedad</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="grid md:grid-cols-2 gap-3">
+                  <Input placeholder="Nombre" className="rounded-2xl"/>
+                  <Input type="email" placeholder="Correo" className="rounded-2xl"/>
+                </div>
+                <Input placeholder="Tema" className="rounded-2xl"/>
+                <Textarea placeholder="Mensaje" className="rounded-2xl min-h-[120px]"/>
+                <Button className="rounded-2xl bg-[#D4AF37] text-slate-900 hover:bg-[#c4a131]">Enviar</Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t">
+        <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-6 items-start">
+          <div>
+            <p className="font-semibold">Madres que Vibran Alto</p>
+            <p className="text-sm text-slate-600 mt-2">Espacio de guía amorosa y formación consciente</p>
+          </div>
+          <div className="text-sm text-slate-600">
+            <p className="font-medium">Dirección</p>
+            <p>Av. Directorio 32, Caballito, Buenos Aires</p>
+            <p className="mt-3 font-medium">Horarios</p>
+            <p>A coordinar según agenda</p>
+          </div>
+          <div className="text-sm text-slate-600">
+            <p className="font-medium">Links</p>
+            <ul className="mt-2 space-y-1">
+              <li><a className="hover:text-[#6B4DE6]" href="https://www.mundobienestar.com.ar" target="_blank" rel="noreferrer">Mundo Bienestar</a></li>
+              <li><a className="hover:text-[#6B4DE6]" href="#formaciones">Academia</a></li>
+              <li><a className="hover:text-[#6B4DE6]" href="#servicios">Sesiones</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="text-center text-xs text-slate-500 pb-6">© {new Date().getFullYear()} Madres que Vibran Alto. Hecho con amor consciente</div>
+      </footer>
+    </div>
+  );
+}
